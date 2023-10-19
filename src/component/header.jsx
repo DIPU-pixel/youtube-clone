@@ -33,6 +33,7 @@ const Header = () => {
     const Data = await fetch(youtube_search_api + searchQueary);
     const json = await Data.json();
     setGetQueryData(json[1]);
+    // console.log(getQueryData);
     // if api call is not present please update
     dispatch(searchCache({
       [searchQueary]:json[1],
