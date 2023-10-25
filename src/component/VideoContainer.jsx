@@ -20,21 +20,21 @@ const VideoContainer = () => {
   useEffect(() => {
     getVideoData();
   }, []);
-const shimmerEffcetsMap=videos.map((val)=> val);
-console.log(shimmerEffcetsMap);
+  // const shimmerEffcetsMap = videos?.map((val) => val);
+  // console.log(shimmerEffcetsMap);
   return (
     <div className="flex flex-wrap">
-      {loading
-        ? 
-          Array(10)
+      {
+      loading.length <1
+        ? Array(10)
             .fill(10)
-            .map((_, index) =>
-            <div>
-              <Shimmer videos={videos}  key={index} />
-
-            </div> 
-            )
-        : videos.map((video) => (
+            .map((_, index) => (
+              <div>
+                <Shimmer videos={videos} key={index} />
+              </div>
+            ))
+        : 
+        videos.map((video) => (
             <Link key={video.id} to={"/watch?v=" + video.id}>
               <VideoCard videos={video} />
             </Link>

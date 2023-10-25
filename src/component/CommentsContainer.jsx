@@ -87,7 +87,6 @@ const commentsdata = [
 ];
 
 const CommentsCard = ({ data }) => {
-  console.log(data);
   const { name, text } = data;
 
   return (

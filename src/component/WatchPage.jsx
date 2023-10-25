@@ -2,20 +2,25 @@ import React, { useEffect } from "react";
 import { closeMenu } from "../utils/slices/appSlice";
 import { useDispatch } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { RightSideContainer } from "./VideoCard";
 import CommentsContainer from "./CommentsContainer";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
+  console.log(searchParams);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeMenu());
   });
+  useEffect(() => {
+    window.scrollTo(0, `0`);
+  }, []);
   return (
-    <div className="ml-6 mt-2">
-      <div className="flex">
+    <div className="flex flex-col">
+      <div className=" px-4 flex ">
+        <div>
         <iframe
-          width="950"
+          width="920"
           height="450"
           src={"https://www.youtube.com/embed/" + searchParams.get("v")}
           title="ONLINE CLASSES GONE WRONG"
@@ -23,6 +28,11 @@ const WatchPage = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
+
+        </div>
+        <div className="w-full m-0">
+          <LiveChat />
+        </div>
         <div>
         </div>
       </div>
