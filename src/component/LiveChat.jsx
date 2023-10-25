@@ -8,15 +8,12 @@ import { generateString } from "../helper/Stringgenerator";
 const LiveChat = () => {
   const dispatch = useDispatch();
   const getChatdata = useSelector((state) => state.chat.messages);
-  console.log(getChatdata);
-  // console.log(getChatdata);
   useEffect(() => {
-    console.log("api polling");
     const LiveChatLogic = setInterval(() => {
       dispatch(
         addChatmessage({
-          name:GenerateName(),
-          message:generateString(10),
+          name: GenerateName(),
+          message: generateString(10),
         })
       );
     }, 2000);
@@ -28,8 +25,8 @@ const LiveChat = () => {
   return (
     <div className="p-1 m-1 w-full h-[450px] overflow-x-hidden  border border-blacks rounded-lg bg-slate-200 overflow-y-scroll flex flex-col-reverse">
       {getChatdata.map((val, i) => (
-        <div  key={i}>
-          <Chatmessage val={val}  />
+        <div key={i}>
+          <Chatmessage val={val} />
         </div>
       ))}
     </div>
