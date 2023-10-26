@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 
 const commentsdata = [
@@ -96,7 +97,7 @@ const CommentsCard = ({ data }) => {
         src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
         alt="image not found"
       />
-      <div className>
+      <div>
         <p className="font-bold">{name} </p>
         <p>{text}</p>
       </div>

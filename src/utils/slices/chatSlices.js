@@ -12,6 +12,9 @@ const ChatSlice = createSlice({
       state.messages.splice(Live_chat_Count,1);
       state.messages.unshift(action.payload);
     },
+    addInputData:(state,action)=>{
+      state.messages.unshift(...state,action.payload)
+    }
   },
 });
 export  const {addChatmessage} =ChatSlice.actions;
